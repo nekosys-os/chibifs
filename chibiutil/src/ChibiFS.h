@@ -10,19 +10,19 @@
 #define FILE_TABLE_RESERVED  0xFFFFFFFE
 
 #include "BlockDevice.h"
-#include "IdentityBlock.h"
+#include "DescriptorBlock.h"
 #include "Partition.h"
 
 class ChibiFS {
 private:
     Partition *partition;
     BlockDevice *blockDevice;
-    IdentityBlock identityBlock{};
+    DescriptorBlock identityBlock{};
 
 public:
     ChibiFS(Partition *partition, BlockDevice *blockDevice);
 
-    const IdentityBlock &getIdentityBlock() const;
+    const DescriptorBlock &getIdentityBlock() const;
 
 };
 

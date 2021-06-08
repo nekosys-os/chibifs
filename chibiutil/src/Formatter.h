@@ -7,11 +7,11 @@
 
 
 #include <xstring>
-#include "IdentityBlock.h"
+#include "DescriptorBlock.h"
 
 class Formatter {
 public:
-    static void createImage(const std::string &path, const IdentityBlock &identityBlock);
+    static void createImage(const std::string &path, const DescriptorBlock &identityBlock);
 };
 
 

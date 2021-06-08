@@ -11,6 +11,6 @@ ChibiFS::ChibiFS(Partition *partition, BlockDevice *blockDevice) : partition(par
     memcpy(&identityBlock, identitySector, sizeof(identityBlock));
 }
 
-const IdentityBlock &ChibiFS::getIdentityBlock() const {
+const DescriptorBlock &ChibiFS::getIdentityBlock() const {
     return identityBlock;
 }

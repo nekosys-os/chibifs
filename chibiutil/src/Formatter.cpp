@@ -8,7 +8,7 @@
 #include "ChibiFS.h"
 #include "MBR.h"
 
-void Formatter::createImage(const std::string &path, const IdentityBlock &identityBlock) {
+void Formatter::createImage(const std::string &path, const DescriptorBlock &identityBlock) {
     uint32_t partitionSize = identityBlock.numBlocks * identityBlock.blockSize;
     if (partitionSize == 0) {
         throw std::runtime_error("partition size must not be 0");
@@ -20,7 +20,7 @@ void Formatter::createImage(const std::string &path, const IdentityBlock &identi
     auto mbrOffset = 512;
     auto *data = new uint8_t[partitionSize + mbrOffset];
     memset(data, 0, partitionSize + mbrOffset);
-    memcpy(data + mbrOffset, &identityBlock, sizeof(IdentityBlock));
+    memcpy(data + mbrOffset, &identityBlock, sizeof(DescriptorBlock));
 
     // Write master boot record
     BlockDevice device(data, partitionSize + mbrOffset);

@@ -18,7 +18,7 @@ The first block on disk is the descriptor block, which contains basic informatio
 The descriptor block takes up the first 24 bytes of the first block. The rest of the first block is reserved.
 
 ```c
-struct IdentityBlock {
+struct DescriptorBlock {
     uint8_t     reserved[4];    // May be used for jump instructions etc.
     char        signature[8];   // File System signature, must be "CHIBIFS0"
     uint32_t    blockSize;      // Size of a single block, in bytes
